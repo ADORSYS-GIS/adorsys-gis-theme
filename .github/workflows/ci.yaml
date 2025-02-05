@@ -39,7 +39,7 @@ jobs:
       - run: yarn install --immutable
         name: Install dependencies
 
-      - run: npm run build -ws
+      - run: npm run build
         name: Build packages
 
       - run: bash ./package.sh
