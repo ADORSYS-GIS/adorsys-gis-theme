@@ -900,6 +900,40 @@ __metadata:
   languageName: node
   linkType: hard
 
+"adorsys-tw-01@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "adorsys-tw-01@workspace:."
+  dependencies:
+    "@types/feather-icons": "npm:^4.29.4"
+    "@typescript-eslint/eslint-plugin": "npm:^8.18.1"
+    "@typescript-eslint/parser": "npm:^8.18.1"
+    autoprefixer: "npm:^10.4.19"
+    copy-webpack-plugin: "npm:^12.0.2"
+    cross-env: "npm:^7.0.3"
+    css-loader: "npm:^7.1.2"
+    css-minimizer-webpack-plugin: "npm:^7.0.0"
+    daisyui: "npm:^4.12.23"
+    eslint: "npm:8"
+    eslint-config-next: "npm:^15.1.0"
+    eslint-config-prettier: "npm:^9.1.0"
+    eslint-plugin-prettier: "npm:^5.2.1"
+    feather-icons: "npm:^4.29.2"
+    html-loader: "npm:^5.1.0"
+    mini-css-extract-plugin: "npm:^2.9.2"
+    postcss: "npm:^8.4.38"
+    postcss-import: "npm:^16.1.0"
+    postcss-loader: "npm:^8.1.1"
+    prettier: "npm:^3.4.2"
+    sass: "npm:^1.77.2"
+    sass-loader: "npm:^16.0.4"
+    tailwindcss: "npm:^3.4.17"
+    ts-loader: "npm:^9.5.1"
+    typescript: "npm:^5.7.2"
+    webpack: "npm:^5.97.1"
+    webpack-cli: "npm:^5.1.4"
+  languageName: unknown
+  linkType: soft
+
 "agent-base@npm:^7.1.0, agent-base@npm:^7.1.2":
   version: 7.1.3
   resolution: "agent-base@npm:7.1.3"
@@ -5485,40 +5519,6 @@ __metadata:
   checksum: 10c0/09270dc4f30d479e666aee820eacd9e464215cdff53848b443964202bf4051490538e5dd1b42e1a65cf7296916ca17640aebf63dae9812749c7542ee5f288dec
   languageName: node
   linkType: hard
-
-"ssegning-tw-01@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "ssegning-tw-01@workspace:."
-  dependencies:
-    "@types/feather-icons": "npm:^4.29.4"
-    "@typescript-eslint/eslint-plugin": "npm:^8.18.1"
-    "@typescript-eslint/parser": "npm:^8.18.1"
-    autoprefixer: "npm:^10.4.19"
-    copy-webpack-plugin: "npm:^12.0.2"
-    cross-env: "npm:^7.0.3"
-    css-loader: "npm:^7.1.2"
-    css-minimizer-webpack-plugin: "npm:^7.0.0"
-    daisyui: "npm:^4.12.23"
-    eslint: "npm:8"
-    eslint-config-next: "npm:^15.1.0"
-    eslint-config-prettier: "npm:^9.1.0"
-    eslint-plugin-prettier: "npm:^5.2.1"
-    feather-icons: "npm:^4.29.2"
-    html-loader: "npm:^5.1.0"
-    mini-css-extract-plugin: "npm:^2.9.2"
-    postcss: "npm:^8.4.38"
-    postcss-import: "npm:^16.1.0"
-    postcss-loader: "npm:^8.1.1"
-    prettier: "npm:^3.4.2"
-    sass: "npm:^1.77.2"
-    sass-loader: "npm:^16.0.4"
-    tailwindcss: "npm:^3.4.17"
-    ts-loader: "npm:^9.5.1"
-    typescript: "npm:^5.7.2"
-    webpack: "npm:^5.97.1"
-    webpack-cli: "npm:^5.1.4"
-  languageName: unknown
-  linkType: soft
 
 "ssri@npm:^12.0.0":
   version: 12.0.0
