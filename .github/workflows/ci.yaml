@@ -60,8 +60,7 @@ jobs:
     # PR on the default branch can release beta but not real release
     if: github.event_name == 'push'
     permissions:
-      contents: read
-      packages: write
+      contents: write
     steps:
       - run: mkdir jars
         name: Create jars directory
