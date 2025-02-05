@@ -8,7 +8,7 @@ const config: Configuration = {
     entry: {
         main: './src/index.ts'
     },
-    devtool: 'source-map',
+    devtool: false,
     output: {
         clean: true,
         filename: (pathData) => {
