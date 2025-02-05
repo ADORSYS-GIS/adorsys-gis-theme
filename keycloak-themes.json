@@ -1,0 +1,10 @@
+{
+  "themes": [
+    {
+      "name": "adorsys-tm-01",
+      "types": [
+        "login", "common"
+      ]
+    }
+  ]
+}

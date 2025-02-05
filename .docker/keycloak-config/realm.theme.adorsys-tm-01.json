@@ -1,0 +1,54 @@
+{
+  "id": "adorsys-tm-01",
+  "realm": "adorsys-tm-01",
+  "displayName": "adorsys TM 01",
+  "displayNameHtml": "<b>adorsys</b> TM 01",
+  "registrationAllowed": false,
+  "registrationEmailAsUsername": false,
+  "rememberMe": false,
+  "loginWithEmailAllowed": false,
+  "resetPasswordAllowed": false,
+  "enabled": true,
+  "loginTheme": "adorsys-tm-01",
+  "identityProviders": [
+    {
+      "alias": "adorsys",
+      "displayName": "adorsys GmbH & CO KG",
+      "providerId": "oidc",
+      "enabled": true,
+      "config": {
+        "syncMode": "LEGACY",
+        "clientSecret": "fake-secret",
+        "clientId": "fake-client-id"
+      }
+    },
+    {
+      "alias": "adorsys-gis",
+      "displayName": "adorsys GIS",
+      "providerId": "oidc",
+      "enabled": true,
+      "config": {
+        "syncMode": "LEGACY",
+        "clientSecret": "fake-secret",
+        "clientId": "fake-client-id"
+      }
+    }
+  ],
+  "users": [
+    {
+      "email": "${KEYCLOAK_ADMIN}@admin",
+      "username": "${KEYCLOAK_ADMIN}",
+      "firstName": "DevOps",
+      "lastName": "SRE",
+      "enabled": true,
+      "emailVerified": true,
+      "credentials": [
+        {
+          "temporary": false,
+          "type": "password",
+          "value": "${KEYCLOAK_ADMIN_PASSWORD}"
+        }
+      ]
+    }
+  ]
+}
