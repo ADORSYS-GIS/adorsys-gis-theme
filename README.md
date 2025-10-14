@@ -38,6 +38,11 @@ Use the provided build script:
 yarn build
 ```
 
+What this does:
+
+- Registers `ts-node` so webpack can read the TypeScript config `webpack.config.ts` (see `package.json > scripts.build`).
+- Runs the CSS pipeline in the correct order for Tailwind v4: `css-loader` → `postcss-loader` (Tailwind via `@tailwindcss/postcss`) → `sass-loader`.
+
 Outputs:
 - `data/common/resources/css/main.css`
 - `data/common/resources/js/main.js`
@@ -108,6 +113,7 @@ __Files changed__
 - `adorsys-gis-theme/package.json`
   - Upgraded TailwindCSS and DaisyUI versions
   - Added dev dependencies: `@tailwindcss/postcss`, `ts-node`, `@types/node`
+  - Updated `build` script to register `ts-node` and use `webpack.config.ts` directly so `yarn build` works without extra flags
 - `adorsys-gis-theme/postcss.config.js`
   - Switched to Tailwind v4 plugin: `@tailwindcss/postcss`
 - `adorsys-gis-theme/src/css/global.scss`
@@ -115,6 +121,8 @@ __Files changed__
   - Wrapped custom styles in `@layer components { ... }` to allow `@apply` where valid in v4
   - Replaced disallowed `@apply` variant usage (e.g. `sm:` in `@apply`) with media queries
   - Replaced a few utilities that v4 rejects in `@apply` (e.g. spacing, `label-text`) with equivalent raw CSS
+- `adorsys-gis-theme/webpack.config.ts`
+  - Fixed CSS loader order to `css-loader` → `postcss-loader` → `sass-loader` so Tailwind runs before Sass output is finalized
 
 __Why these changes__
 
@@ -130,4 +138,11 @@ __How to verify the upgrade__
 cd adorsys-gis-theme
 node -p "require('./package.json').devDependencies.tailwindcss"
 node -p "require('./package.json').devDependencies.daisyui"
+```
+
+- Run a production build and ensure artifacts are created without errors:
+
+```bash
+yarn build
+ls -1 data/common/resources/{css,js}
 ```
