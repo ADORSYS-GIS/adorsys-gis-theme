@@ -36,10 +36,16 @@ jobs:
           node-version: "22"
           cache: yarn
 
+      - uses: actions/setup-java@v4
+        name: Setup Java (for jar packaging)
+        with:
+          distribution: temurin
+          java-version: '17'
+
       - run: yarn install --immutable
         name: Install dependencies
 
-      - run: npm run build
+      - run: yarn build
         name: Build packages
 
       - run: bash ./package.sh
