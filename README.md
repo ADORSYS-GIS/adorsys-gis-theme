@@ -31,14 +31,11 @@ yarn install
 
 ## Build assets
 
-This project uses a TypeScript webpack config. To build without changing scripts, preload `ts-node`:
+Use the provided build script:
 
 ```bash
 # Run from adorsys-gis-theme/
-TS_NODE_SKIP_PROJECT=1 \
-TS_NODE_COMPILER_OPTIONS='{"module":"commonjs","esModuleInterop":true,"target":"ES2020"}' \
-NODE_OPTIONS="--require ts-node/register/transpile-only" \
-yarn webpack --config webpack.config.ts
+yarn build
 ```
 
 Outputs:
@@ -91,9 +88,9 @@ docker compose up --wait
 
 ## Notes on Tailwind CSS v4 / DaisyUI v5
 
-- Tailwind v4 uses `@tailwindcss/postcss` and CSS-first directives. See `postcss.config.js`.
-- Some `@apply` patterns from v3 are no longer allowed in v4 (e.g. `sm:` variants inside `@apply`).
-- In `src/css/global.scss`, responsive `@apply` was replaced by media queries where needed, and a few utilities (e.g. spacing, a DaisyUI utility) were expressed as raw CSS to satisfy v4.
+- Tailwind v4 uses `@tailwindcss/postcss` and CSS-first directives (see `postcss.config.js`).
+- `@apply` is stricter in v4; responsive variants like `sm:` can’t be used inside `@apply`.
+- In `src/css/global.scss`, we replaced disallowed `@apply` patterns with media queries and, where needed, equivalent raw CSS utilities.
 
 ## Alternative: JS webpack config
 
