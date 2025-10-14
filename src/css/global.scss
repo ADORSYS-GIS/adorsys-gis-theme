@@ -1,129 +1,158 @@
+@reference "tailwindcss";
+@plugin "daisyui";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-$dimension: 32px;
+@layer components {
+  $dimension: 32px;
 
-hr {
-  @apply divider;
-}
-
-span, p {
-  a {
-    @apply btn-link;
-  }
-}
-
-.app-card {
-  @apply sm:mt-4 sm:mx-auto sm:w-full sm:max-w-[320px] px-4 sm:px-0;
-}
-
-.form-long {
-  label {
-    & {
-      @apply label-text;
-    }
-
-    @apply cursor-pointer;
+  hr {
+    @apply divider;
   }
 
-  @apply flex flex-col items-start justify-between mb-4;
-}
-
-#kc-form-buttons {
-  @apply mt-2;
-}
-
-#kc-page-title {
-  @apply text-3xl sm:text-4xl font-bold relative;
-}
-
-#kc-current-locale-link {
-  svg {
-    @apply w-4 h-4;
-  }
-
-  @apply btn btn-sm btn-outline;
-}
-
-.app-wrapper {
-  label, .subtitle {
-    color: initial;
-
-    span {
-      @apply text-error;
+  span, p {
+    a {
+      @apply btn-link;
     }
   }
 
-  &.waff {
-    @apply flex-col items-start;
+  .app-card {
+    /* Base (mobile) */
+    padding-left: 1rem; /* px-4 */
+    padding-right: 1rem; /* px-4 */
   }
 
-  @apply flex items-center text-error;
-}
-
-input[aria-invalid="true"] {
-  @apply input-error;
-}
-
-.app-social {
-
-  &::before {
-    position: absolute;
-    left: calc($dimension / 2);
-    background-clip: content-box;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    display: inline-block;
-
-    content: "" !important;
-    width: $dimension;
-    height: $dimension;
+  /* Responsive adjustments for Tailwind v4 (no variants in @apply) */
+  @media (min-width: 640px) { /* sm */
+    .app-card {
+      margin-top: 1rem; /* mt-4 */
+      margin-left: auto; /* mx-auto */
+      margin-right: auto; /* mx-auto */
+      width: 100%; /* w-full */
+      max-width: 320px; /* max-w-[320px] */
+      padding-left: 0; /* px-0 */
+      padding-right: 0; /* px-0 */
+    }
   }
 
-  &[id*=google]::before {
-    background-image: url('../img/google.png');
+  .form-long {
+    label {
+      & {
+        /* Approximate daisyUI label-text */
+        font-weight: 500;
+        font-size: 0.875rem; /* text-sm */
+        line-height: 1.25rem; /* leading-5 */
+      }
+
+      @apply cursor-pointer;
+    }
+
+    @apply flex flex-col items-start justify-between mb-4;
   }
 
-  &[id*=facebook]::before {
-    background-image: url('../img/facebook.png');
+  #kc-form-buttons {
+    @apply mt-2;
   }
 
-  &[id*=github]::before {
-    background-image: url('../img/github.svg');
+  #kc-page-title {
+    /* Base (mobile) */
+    @apply text-3xl font-bold relative;
   }
 
-  &[id*=adorsys]::before {
-    background-image: url('../img/adorsys.svg');
-    background-size: $dimension * 1.2;
-    height: $dimension * 1.2;
+  @media (min-width: 640px) { /* sm */
+    #kc-page-title {
+      @apply text-4xl;
+    }
   }
 
-  &[id*=adorsys-gis]::before {
-    background-image: url('../img/adorsys-gis.svg');
-    background-size: $dimension * 1.2;
-    height: $dimension * 1.2;
+  #kc-current-locale-link {
+    svg {
+      @apply w-4 h-4;
+    }
+
+    @apply btn btn-sm btn-outline;
   }
 
-  &[id*=gitlab]::before {
-    background-image: url('../img/gitlab.svg');
-    background-size: $dimension * 2;
+  .app-wrapper {
+    label, .subtitle {
+      color: initial;
+
+      span {
+        @apply text-error;
+      }
+    }
+
+    &.waff {
+      @apply flex-col items-start;
+    }
+
+    @apply flex items-center text-error;
   }
 
-  &[id*=microsoft]::before {
-    background-image: url('../img/microsoft.svg');
+  input[aria-invalid="true"] {
+    @apply input-error;
   }
-}
 
-#kc-totp-secret-qr-code {
-  @apply w-full my-4;
-}
+  .app-social {
 
-#kc-totp-supported-apps {
-  @apply list-disc list-inside;
-}
+    &::before {
+      position: absolute;
+      left: calc($dimension / 2);
+      background-clip: content-box;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      display: inline-block;
 
-#kc-totp-settings {
-  @apply gap-4 flex flex-col mb-4;
+      content: "" !important;
+      width: $dimension;
+      height: $dimension;
+    }
+
+    &[id*=google]::before {
+      background-image: url('../img/google.png');
+    }
+
+    &[id*=facebook]::before {
+      background-image: url('../img/facebook.png');
+    }
+
+    &[id*=github]::before {
+      background-image: url('../img/github.svg');
+    }
+
+    &[id*=adorsys]::before {
+      background-image: url('../img/adorsys.svg');
+      background-size: $dimension * 1.2;
+      height: $dimension * 1.2;
+    }
+
+    &[id*=adorsys-gis]::before {
+      background-image: url('../img/adorsys-gis.svg');
+      background-size: $dimension * 1.2;
+      height: $dimension * 1.2;
+    }
+
+    &[id*=gitlab]::before {
+      background-image: url('../img/gitlab.svg');
+      background-size: $dimension * 2;
+    }
+
+    &[id*=microsoft]::before {
+      background-image: url('../img/microsoft.svg');
+    }
+  }
+
+  #kc-totp-secret-qr-code {
+    @apply w-full my-4;
+  }
+
+  #kc-totp-supported-apps {
+    @apply list-disc list-inside;
+  }
+
+  #kc-totp-settings {
+    @apply gap-4 flex flex-col mb-4;
+  }
 }
