@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - chore/tailwind4-daisyui5
   pull_request:
     branches:
       - main
@@ -16,6 +17,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         name: Checkout code
+
+      - name: Install jq
+        run: sudo apt-get update && sudo apt-get install -y jq
 
       - id: package_version
         run: echo "to_version=$(jq -r '.version' package.json)" >> $GITHUB_OUTPUT
@@ -65,7 +69,7 @@ jobs:
       - version
     # We create a release only if the version have been upgraded and we are on a default branch
     # PR on the default branch can release beta but not real release
-    if: github.event_name == 'push'
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     permissions:
       contents: write
     steps:
