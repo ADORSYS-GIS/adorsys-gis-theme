@@ -34,7 +34,7 @@
     "webpack-cli": "^5.1.4"
   },
   "scripts": {
-    "build": "cross-env webpack"
+    "build": "cross-env TS_NODE_SKIP_PROJECT=1 TS_NODE_COMPILER_OPTIONS='{\"module\":\"commonjs\",\"esModuleInterop\":true,\"target\":\"ES2020\"}' NODE_OPTIONS='--require ts-node/register/transpile-only' webpack --config webpack.config.ts"
   },
   "packageManager": "yarn@4.5.3",
   "dependencies": {

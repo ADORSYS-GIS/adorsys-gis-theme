@@ -34,7 +34,8 @@ const config: Configuration = {
             },
             {
                 test: /\.(s|)[ca]ss$/,
-                use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader', 'postcss-loader'],
+                // Loaders run right-to-left. We want Sass -> PostCSS (Tailwind) -> CSS.
+                use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader', 'sass-loader'],
             },
         ],
     },
