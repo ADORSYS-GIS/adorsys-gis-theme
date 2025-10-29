@@ -3,6 +3,7 @@
   "version": "1.0.1",
   "license": "MIT",
   "devDependencies": {
+    "@tailwindcss/postcss": "^4.1.15",
     "@types/feather-icons": "^4.29.4",
     "@typescript-eslint/eslint-plugin": "^8.18.1",
     "@typescript-eslint/parser": "^8.18.1",
@@ -11,7 +12,7 @@
     "cross-env": "^7.0.3",
     "css-loader": "^7.1.2",
     "css-minimizer-webpack-plugin": "^7.0.0",
-    "daisyui": "^4.12.23",
+    "daisyui": "^5.2.3",
     "eslint": "8",
     "eslint-config-next": "^15.1.0",
     "eslint-config-prettier": "^9.1.0",
@@ -24,16 +25,16 @@
     "prettier": "^3.4.2",
     "sass": "^1.77.2",
     "sass-loader": "^16.0.4",
-    "tailwindcss": "^3.4.17",
+    "tailwindcss": "^4.1.14",
     "ts-loader": "^9.5.1",
     "typescript": "^5.7.2",
     "webpack": "^5.97.1",
     "webpack-cli": "^5.1.4"
   },
   "scripts": {
-    "build": "cross-env webpack"
+    "build": "cross-env webpack --config webpack.config.js"
   },
-  "packageManager": "yarn@4.5.3",
+  "packageManager": "yarn@4.5.3+sha512.3003a14012e2987072d244c720506549c1aab73ee728208f1b2580a9fd67b92d61ba6b08fe93f6dce68fd771e3af1e59a0afa28dd242dd0940d73b95fedd4e90",
   "dependencies": {
     "feather-icons": "^4.29.2"
   }
