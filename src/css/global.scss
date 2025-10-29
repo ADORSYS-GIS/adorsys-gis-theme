@@ -1,176 +1,129 @@
-@reference utilities;
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@layer components {
-  $dimension: 32px;
+$dimension: 32px;
 
-  hr {
-    /* Use plain CSS instead of @apply for compatibility */
-    margin: 1rem 0; /* my-4 */
-    border: 0;      /* border-0 */
-    border-top: 1px solid rgba(0,0,0,0.12); /* border-t border-base-content/20 approximation */
+hr {
+  @apply divider;
+}
+
+span, p {
+  a {
+    @apply btn-link;
+  }
+}
+
+.app-card {
+  @apply sm:mt-4 sm:mx-auto sm:w-full sm:max-w-[320px] px-4 sm:px-0;
+}
+
+.form-long {
+  label {
+    & {
+      @apply label-text;
+    }
+
+    @apply cursor-pointer;
   }
 
-  /* Links inside text blocks */
-  span, p {
-    a {
-      /* Removed: @apply btn-link; (DaisyUI component) */
-      text-decoration: underline;
-      color: var(--fallback-p, oklch(0.5 0.2 260)); /* approximate primary */
+  @apply flex flex-col items-start justify-between mb-4;
+}
+
+#kc-form-buttons {
+  @apply mt-2;
+}
+
+#kc-page-title {
+  @apply text-3xl sm:text-4xl font-bold relative;
+}
+
+#kc-current-locale-link {
+  svg {
+    @apply w-4 h-4;
+  }
+
+  @apply btn btn-sm btn-outline;
+}
+
+.app-wrapper {
+  label, .subtitle {
+    color: initial;
+
+    span {
+      @apply text-error;
     }
   }
 
-  /* v4-safe: no responsive variants inside @apply */
-  .app-card {
-    padding-left: 1rem; /* px-4 */
-    padding-right: 1rem;
+  &.waff {
+    @apply flex-col items-start;
   }
 
-  @media (min-width: 640px) { /* sm */
-    .app-card {
-      margin-top: 1rem; /* mt-4 */
-      margin-left: auto; /* mx-auto */
-      margin-right: auto;
-      width: 100%; /* w-full */
-      max-width: 320px; /* max-w-[320px] */
-      padding-left: 0; /* px-0 */
-      padding-right: 0;
-    }
+  @apply flex items-center text-error;
+}
+
+input[aria-invalid="true"] {
+  @apply input-error;
+}
+
+.app-social {
+
+  &::before {
+    position: absolute;
+    left: calc($dimension / 2);
+    background-clip: content-box;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    display: inline-block;
+
+    content: "" !important;
+    width: $dimension;
+    height: $dimension;
   }
 
-  .form-long {
-    label {
-      & {
-        /* Removed: @apply label-text; (DaisyUI component) */
-        font-size: 0.875rem;
-        line-height: 1.25rem; /* ~text-sm */
-      }
-
-      /* Removed: @apply cursor-pointer; keep behavior */
-      cursor: pointer;
-    }
-
-    display: flex; /* flex */
-    flex-direction: column; /* flex-col */
-    align-items: flex-start; /* items-start */
-    justify-content: space-between; /* justify-between */
-    margin-bottom: 1rem; /* mb-4 */
+  &[id*=google]::before {
+    background-image: url('../img/google.png');
   }
 
-  #kc-form-buttons {
-    margin-top: 0.5rem; /* mt-2 */
+  &[id*=facebook]::before {
+    background-image: url('../img/facebook.png');
   }
 
-  /* v4-safe title sizing */
-  #kc-page-title {
-    font-size: 1.875rem; /* text-3xl */
-    line-height: 2.25rem;
-    font-weight: 700; /* font-bold */
-    position: relative;
+  &[id*=github]::before {
+    background-image: url('../img/github.svg');
   }
 
-  @media (min-width: 640px) { /* sm */
-    #kc-page-title {
-      font-size: 2.25rem; /* text-4xl */
-      line-height: 2.5rem;
-    }
+  &[id*=adorsys]::before {
+    background-image: url('../img/adorsys.svg');
+    background-size: $dimension * 1.2;
+    height: $dimension * 1.2;
   }
 
-  #kc-current-locale-link {
-    svg {
-      width: 1rem; /* w-4 */
-      height: 1rem; /* h-4 */
-    }
-
-    /* Removed: @apply btn btn-sm btn-outline; (DaisyUI component) */
-    padding: 0.25rem 0.5rem;
-    border: 1px solid currentColor;
-    border-radius: 0.375rem;
-    background: transparent;
+  &[id*=adorsys-gis]::before {
+    background-image: url('../img/adorsys-gis.svg');
+    background-size: $dimension * 1.2;
+    height: $dimension * 1.2;
   }
 
-  .app-wrapper {
-    label, .subtitle {
-      color: initial;
-
-      span {
-        /* Removed: @apply text-error; (DaisyUI token) */
-        color: var(--fallback-er, oklch(0.6 0.25 20)); /* approx error */
-      }
-    }
-
-    &.waff {
-      flex-direction: column;
-      align-items: flex-start;
-    }
-
-    display: flex;
-    align-items: center;
-    /* Removed: @apply text-error; avoid DaisyUI token */
+  &[id*=gitlab]::before {
+    background-image: url('../img/gitlab.svg');
+    background-size: $dimension * 2;
   }
 
-  input[aria-invalid="true"] {
-    /* Removed: @apply input-error; (DaisyUI component) */
-    border-color: var(--fallback-er, oklch(0.6 0.25 20));
+  &[id*=microsoft]::before {
+    background-image: url('../img/microsoft.svg');
   }
+}
 
-  .app-social {
+#kc-totp-secret-qr-code {
+  @apply w-full my-4;
+}
 
-    &::before {
-      position: absolute;
-      left: calc($dimension / 2);
-      background-clip: content-box;
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: cover;
-      display: inline-block;
+#kc-totp-supported-apps {
+  @apply list-disc list-inside;
+}
 
-      content: "" !important;
-      width: $dimension;
-      height: $dimension;
-    }
-
-    &[id*=google]::before { background-image: url('../img/google.png'); }
-    &[id*=facebook]::before { background-image: url('../img/facebook.png'); }
-    &[id*=github]::before { background-image: url('../img/github.svg'); }
-
-    &[id*=adorsys]::before {
-      background-image: url('../img/adorsys.svg');
-      background-size: $dimension * 1.2;
-      height: $dimension * 1.2;
-    }
-
-    &[id*=adorsys-gis]::before {
-      background-image: url('../img/adorsys-gis.svg');
-      background-size: $dimension * 1.2;
-      height: $dimension * 1.2;
-    }
-
-    &[id*=gitlab]::before {
-      background-image: url('../img/gitlab.svg');
-      background-size: $dimension * 2;
-    }
-
-    &[id*=microsoft]::before { background-image: url('../img/microsoft.svg'); }
-  }
-
-  #kc-totp-secret-qr-code {
-    width: 100%;
-    margin-top: 1rem; /* my-4 */
-    margin-bottom: 1rem;
-  }
-
-  #kc-totp-supported-apps {
-    list-style-type: disc; /* list-disc */
-    padding-left: 1rem; /* list-inside approximation */
-  }
-
-  #kc-totp-settings {
-    gap: 1rem; /* gap-4 */
-    display: flex; /* flex */
-    flex-direction: column; /* flex-col */
-    margin-bottom: 1rem; /* mb-4 */
-  }
+#kc-totp-settings {
+  @apply gap-4 flex flex-col mb-4;
 }
