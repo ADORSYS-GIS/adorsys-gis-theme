@@ -5,7 +5,7 @@
 $dimension: 32px;
 
 hr {
-  @apply divider;
+  @apply border-t border-gray-200 my-4;
 }
 
 span, p {
