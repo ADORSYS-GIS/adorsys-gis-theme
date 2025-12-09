@@ -1,4 +1,5 @@
-import "./css/global.scss";
+import './css/tailwind.css';
+import './css/global.scss';
 import "./libs/code";
 import "./libs/logo";
 import { addFeatherIconToButton } from "./libs/utils";

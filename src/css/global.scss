@@ -1,6 +1,4 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@reference "./tailwind.css";
 
 $dimension: 32px;
 
@@ -8,7 +6,8 @@ hr {
   @apply divider;
 }
 
-span, p {
+span,
+p {
   a {
     @apply btn-link;
   }
@@ -19,15 +18,12 @@ span, p {
 }
 
 .form-long {
-  label {
-    & {
-      @apply label-text;
-    }
+  @apply flex flex-col items-start justify-between mb-4;
 
+  label {
+    @apply text-sm;
     @apply cursor-pointer;
   }
-
-  @apply flex flex-col items-start justify-between mb-4;
 }
 
 #kc-form-buttons {
@@ -47,7 +43,10 @@ span, p {
 }
 
 .app-wrapper {
-  label, .subtitle {
+  @apply flex items-center text-error;
+
+  label,
+  .subtitle {
     color: initial;
 
     span {
@@ -58,8 +57,6 @@ span, p {
   &.waff {
     @apply flex-col items-start;
   }
-
-  @apply flex items-center text-error;
 }
 
 input[aria-invalid="true"] {

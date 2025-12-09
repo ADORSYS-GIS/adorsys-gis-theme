@@ -1,4 +1,4 @@
-import {Configuration} from 'webpack';
+import { Configuration } from 'webpack';
 import path from 'node:path';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import CssMinimizerPlugin from 'css-minimizer-webpack-plugin';
@@ -33,8 +33,12 @@ const config: Configuration = {
                 use: 'html-loader',
             },
             {
-                test: /\.(s|)[ca]ss$/,
-                use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader', 'postcss-loader'],
+                test: /\.css$/,
+                use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader'],
+            },
+            {
+                test: /\.s[ca]ss$/,
+                use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader', 'sass-loader'],
             },
         ],
     },
@@ -45,7 +49,18 @@ const config: Configuration = {
             minSize: 100_000,
         },
         minimizer: [
-            new CssMinimizerPlugin(),
+            new CssMinimizerPlugin({
+                minimizerOptions: {
+                    preset: [
+                        'default',
+                        {
+                            // Disable calc optimization - postcss-calc doesn't support modern CSS 'infinity' values used by Tailwind v4
+                            // See: https://github.com/postcss/postcss-calc/issues/220
+                            calc: false,
+                        },
+                    ],
+                },
+            }),
         ],
         minimize: true,
         runtimeChunk: 'single',
