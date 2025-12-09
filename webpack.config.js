@@ -1,10 +1,9 @@
-import {Configuration} from 'webpack';
-import path from 'node:path';
-import MiniCssExtractPlugin from 'mini-css-extract-plugin';
-import CssMinimizerPlugin from 'css-minimizer-webpack-plugin';
-import CopyPlugin from 'copy-webpack-plugin';
+const path = require('path');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 
-const config: Configuration = {
+module.exports = {
     entry: {
         main: './src/index.ts'
     },
@@ -19,7 +18,7 @@ const config: Configuration = {
     },
     mode: 'production',
     resolve: {
-        extensions: ['.ts']
+        extensions: ['.ts', '.js']
     },
     module: {
         rules: [
@@ -33,8 +32,8 @@ const config: Configuration = {
                 use: 'html-loader',
             },
             {
-                test: /\.(s|)[ca]ss$/,
-                use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader', 'postcss-loader'],
+                test: /\.css$/,
+                use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader'],
             },
         ],
     },
@@ -65,5 +64,3 @@ const config: Configuration = {
         }),
     ],
 };
-
-export default config;

@@ -1,0 +1,200 @@
+@import "tailwindcss";
+
+@plugin "daisyui" {
+  themes: light --default;
+}
+
+@layer components {
+  :root {
+    --dimension: 32px;
+  }
+
+  html {
+    color-scheme: light;
+  }
+
+  .app-social {
+    @apply relative pl-[calc(var(--dimension)+0.5rem)];
+  }
+
+  .app-social::before {
+    @apply absolute left-0 top-1/2 -translate-y-1/2 w-[var(--dimension)] h-[var(--dimension)] bg-no-repeat bg-center bg-contain content-[""];
+  }
+
+  .app-social[id*=google]::before {
+    background-image: url('../img/google.png');
+  }
+
+  .app-social[id*=facebook]::before {
+    background-image: url('../img/facebook.png');
+  }
+
+  .app-social[id*=github]::before {
+    background-image: url('../img/github.svg');
+  }
+
+  .app-social[id*=adorsys]::before {
+    background-image: url('../img/adorsys.svg');
+    @apply w-[calc(var(--dimension)*1.2)] h-[calc(var(--dimension)*1.2)];
+  }
+
+  .app-social[id*=adorsys-gis]::before {
+    background-image: url('../img/adorsys-gis.svg');
+    @apply w-[calc(var(--dimension)*1.2)] h-[calc(var(--dimension)*1.2)];
+  }
+
+  .app-social[id*=gitlab]::before {
+    background-image: url('../img/gitlab.svg');
+    @apply w-[calc(var(--dimension)*2)] h-[calc(var(--dimension)*2)];
+  }
+
+  .app-social[id*=microsoft]::before {
+    background-image: url('../img/microsoft.svg');
+  }
+
+  .app-card {
+    @apply p-4 bg-white rounded-lg sm:max-w-80 sm:mx-auto sm:mt-4 sm:p-4;
+    margin-top: -10px !important;
+  }
+
+  .form-long {
+    @apply flex flex-col items-start justify-between mb-3;
+  }
+
+  .form-long label {
+    @apply text-sm text-black cursor-pointer;
+  }
+
+  #kc-page-title {
+    @apply text-3xl sm:text-4xl font-bold mb-4;
+  }
+
+  #kc-form-buttons {
+    @apply mt-2;
+  }
+
+  #kc-current-locale-link {
+    @apply px-3 py-1 text-sm border border-gray-300 rounded-md inline-flex items-center justify-center bg-white hover:bg-gray-100 transition-colors;
+  }
+
+  #kc-current-locale-link svg {
+    @apply w-4 h-4 ml-1;
+  }
+
+  .app-wrapper {
+    @apply flex items-center;
+  }
+
+  .app-wrapper.error {
+    @apply text-error;
+  }
+
+  .app-wrapper.waff {
+    @apply flex-col items-start;
+  }
+
+  .app-wrapper label {
+    color: #000000 !important;
+  }
+
+  .app-wrapper label span {
+    color: #dc2626 !important;
+    display: inline;
+    margin-left: 4px;
+  }
+
+  .app-wrapper .subtitle {
+    color: #000000 !important;
+  }
+
+  .app-wrapper .subtitle span {
+    color: #dc2626 !important;
+    display: inline;
+    margin-left: 4px;
+  }
+
+  input[aria-invalid="true"] {
+    @apply border-error focus:ring-error;
+  }
+
+  #kc-totp-secret-qr-code {
+    @apply w-full my-4;
+  }
+
+  #kc-totp-supported-apps {
+    @apply list-disc list-inside;
+  }
+
+  #kc-totp-settings {
+    @apply flex flex-col gap-4 mb-4;
+  }
+
+  .divider {
+    @apply flex items-center my-4 text-sm text-gray-500;
+  }
+
+  .divider::before,
+  .divider::after {
+    @apply flex-1 border-t border-gray-300 content-[""];
+  }
+
+  .divider::before {
+    @apply mr-2;
+  }
+
+  .divider::after {
+    @apply ml-2;
+  }
+
+  hr {
+    @apply border-0 border-t border-gray-300 my-4;
+  }
+
+  .checkbox {
+    @apply w-auto mr-2;
+  }
+
+  .label-text {
+    @apply text-sm text-black;
+  }
+
+  label {
+    color: #000000 !important;
+  }
+
+  label span {
+    color: #dc2626 !important;
+    display: inline;
+    margin-left: 4px;
+  }
+
+  .ml-2 {
+    @apply ml-2;
+  }
+
+  .cursor-pointer {
+    @apply cursor-pointer;
+  }
+
+  input.input,
+  .input,
+  .input-bordered {
+    background-color: #3232385e;
+    @apply text-black border-black;
+  }
+
+  .input:hover,
+  .input-bordered:hover {
+    background-color: #454547;
+  }
+
+  .input:focus,
+  .input-bordered:focus {
+    background-color: #373738;
+    @apply text-black outline-none ring-0 shadow-none;
+  }
+
+  a {
+    @apply text-blue-600 hover:text-blue-800;
+  }
+}

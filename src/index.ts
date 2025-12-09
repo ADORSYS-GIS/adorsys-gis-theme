@@ -1,4 +1,4 @@
-import "./css/global.scss";
+import "./css/global.css";
 import "./libs/code";
 import "./libs/logo";
 import { addFeatherIconToButton } from "./libs/utils";
