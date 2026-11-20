@@ -8,15 +8,15 @@ export default {
         themes: [
             {
                 "adorsys-stock": {
-                    "primary": "#2F2CF9",
-                    "secondary": "#8498F4",
-                    "accent": "#8498F4",
-                    "neutral": "#101C25",
-                    "base-100": "#F8F9F9",
-                    "info": "#8498F4",
+                    "primary": "#144587",
+                    "secondary": "#25A8DB",
+                    "accent": "#F6A42B",
+                    "neutral": "#101828",
+                    "base-100": "#FFFFFF",
+                    "info": "#25A8DB",
                     "success": "#90D033",
                     "warning": "#FFCB1D",
-                    "error": "#E16A6A",
+                    "error": "#B42318",
                     "dark-80": "#28333B",
                     "dark-50": "#878D92",
                     "dark-20": "#F8F9F9"
