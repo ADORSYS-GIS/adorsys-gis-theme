@@ -1,6 +1,6 @@
 import "./css/global.scss";
+import "./css/layout.scss";
 import "./libs/code";
-import "./libs/logo";
 import { addFeatherIconToButton } from "./libs/utils";
 
 window.addEventListener("load", () => {
@@ -8,7 +8,6 @@ window.addEventListener("load", () => {
     addFeatherIconToButton(languageButton, "globe");
 
     replaceWrongCheckboxes();
-    replaceWrongHr();
 });
 
 window.addEventListener("load", async () => {
@@ -40,26 +39,3 @@ function replaceWrongCheckboxes() {
         }
     }
 }
-
-function replaceWrongHr() {
-    const socialProviders = document.querySelector("#kc-social-providers");
-    if (!socialProviders) return;
-
-    const wrongHr = socialProviders.querySelectorAll("hr");
-    let replacement = socialProviders.querySelector("h2");
-    replacement = replacement ?? socialProviders.querySelector("h4");
-
-    if (!replacement) return;
-
-    for (const element of wrongHr) {
-        const divDivider = document.createElement("div");
-        divDivider.innerText = replacement.innerText.trim();
-        divDivider.classList.add("divider");
-
-        if (element.parentNode) {
-            element.parentNode.removeChild(replacement);
-            element.parentNode.replaceChild(divDivider, element);
-        }
-    }
-}
-
