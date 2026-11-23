@@ -8,16 +8,6 @@ hr {
   @apply divider;
 }
 
-span, p {
-  a {
-    @apply btn-link;
-  }
-}
-
-.app-card {
-  @apply sm:mt-4 sm:mx-auto sm:w-full sm:max-w-[320px] px-4 sm:px-0;
-}
-
 .form-long {
   label {
     & {
@@ -28,14 +18,6 @@ span, p {
   }
 
   @apply flex flex-col items-start justify-between mb-4;
-}
-
-#kc-form-buttons {
-  @apply mt-2;
-}
-
-#kc-page-title {
-  @apply text-3xl sm:text-4xl font-bold relative;
 }
 
 #kc-current-locale-link {

@@ -79,6 +79,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@fontsource-variable/inter@npm:5.1.0":
+  version: 5.1.0
+  resolution: "@fontsource-variable/inter@npm:5.1.0"
+  checksum: 10c0/6b46019c71380f6e18427b4b19468a9a656609fcf613b8472f7b928ec1bc6f13b03d1dd0bb9536cd168a53e58c009465e2245cd87ef57f9925a07d2306bd8f58
+  languageName: node
+  linkType: hard
+
 "@humanwhocodes/config-array@npm:^0.13.0":
   version: 0.13.0
   resolution: "@humanwhocodes/config-array@npm:0.13.0"
@@ -904,6 +911,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "adorsys-tw-01@workspace:."
   dependencies:
+    "@fontsource-variable/inter": "npm:5.1.0"
     "@types/feather-icons": "npm:^4.29.4"
     "@typescript-eslint/eslint-plugin": "npm:^8.18.1"
     "@typescript-eslint/parser": "npm:^8.18.1"

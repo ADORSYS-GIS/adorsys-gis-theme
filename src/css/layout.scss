@@ -1,0 +1,369 @@
+/* Page layout and brand colours of the sign-in pages. */
+/*  */
+/* A navy brand panel (logo, realm name) next to the form; on a phone the panel */
+/* becomes a short band above the form. The markup is Keycloak's own base */
+/* template: #kc-header is the brand panel, the form card is the right side. */
+/* Colours follow adorsys.com: #101828 primary, #144587 secondary, #25A8DB, */
+/* #F6A42B and #E61659 as accents. */
+
+@font-face {
+  font-family: 'Inter Variable';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 900;
+  src: url('@fontsource-variable/inter/files/inter-latin-wght-normal.woff2') format('woff2-variations');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Inter Variable';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 900;
+  src: url('@fontsource-variable/inter/files/inter-latin-ext-wght-normal.woff2') format('woff2-variations');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+:root {
+  --ado-primary: #101828;
+  --ado-secondary: #144587;
+  --ado-secondary-hover: #0f3568;
+  --ado-accent-blue: #25a8db;
+  --ado-accent-yellow: #f6a42b;
+  --ado-page: #f4f6f9;
+  --ado-ink: #101828;
+  --ado-ink-2: #475467;
+  --ado-line: #d0d5dd;
+  --ado-on-dark: #f2f4f7;
+  --ado-on-dark-2: #98a2b3;
+  --ado-error: #b42318;
+  --ado-error-bg: #fef3f2;
+  --ado-error-line: #fecdca;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--ado-page);
+  color: var(--ado-ink);
+  font-family: 'Inter Variable', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.app-shell {
+  min-height: 100%;
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+}
+
+/* ---------- brand panel ---------- */
+
+.app-brand {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 96px 48px 72px;
+  color: var(--ado-on-dark);
+  background-color: var(--ado-primary);
+  background-image: url('../img/adorsys-long-white.svg');
+  background-repeat: no-repeat;
+  background-position: 48px 44px;
+  background-size: auto 26px;
+  box-shadow: inset 0 -3px 0 var(--ado-accent-yellow);
+
+  &::after {
+    content: 'Single sign-on';
+    position: absolute;
+    left: 48px;
+    bottom: 36px;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ado-on-dark-2);
+  }
+}
+
+html[lang='de'] .app-brand::after {
+  content: 'Einmalanmeldung';
+}
+
+.app-brand-title {
+  font-size: 34px;
+  line-height: 1.12;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+
+  b {
+    font-weight: 800;
+  }
+}
+
+/* ---------- form panel ---------- */
+
+.app-panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 18px;
+  width: 100%;
+  max-width: 392px;
+  margin: 0 auto;
+  padding: 44px 16px;
+}
+
+/* The header holds the language menu and the title. Its children are laid out */
+/* by the panel so the language menu can sit below the form. */
+.app-panel-header {
+  display: contents;
+}
+
+#kc-page-title {
+  order: 0;
+  margin: 0;
+  font-size: 22px;
+  line-height: 1.3;
+  font-weight: 700;
+}
+
+#kc-content {
+  order: 1;
+}
+
+.app-locale {
+  order: 2;
+  align-self: flex-start;
+  margin-top: 6px;
+  padding-top: 14px;
+  width: 100%;
+  border-top: 1px solid var(--ado-line);
+}
+
+#kc-content-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+#kc-form-login,
+#kc-form-wrapper form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.label {
+  padding: 0 0 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ado-ink);
+}
+
+.input {
+  height: 44px;
+  border-radius: 8px;
+  border-color: var(--ado-line);
+  background: #fff;
+  font-size: 15px;
+}
+
+.input:focus,
+.input:focus-visible,
+.btn:focus-visible,
+a:focus-visible {
+  outline: 3px solid rgba(37, 168, 219, 0.55);
+  outline-offset: 2px;
+}
+
+.btn {
+  height: 46px;
+  min-height: 46px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  text-transform: none;
+}
+
+.btn-primary {
+  background: var(--ado-secondary);
+  border-color: var(--ado-secondary);
+  color: #fff;
+
+  &:hover {
+    background: var(--ado-secondary-hover);
+    border-color: var(--ado-secondary-hover);
+  }
+}
+
+.btn-outline {
+  background: #fff;
+  border-color: var(--ado-line);
+  color: var(--ado-ink);
+
+  &:hover {
+    background: #fff;
+    border-color: var(--ado-ink-2);
+    color: var(--ado-ink);
+  }
+}
+
+#kc-form-buttons {
+  margin-top: 4px;
+}
+
+span a,
+p a,
+#kc-form-options a,
+#kc-registration a,
+#kc-info a {
+  color: var(--ado-secondary);
+  font-weight: 600;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+/* ---------- identity providers first ---------- */
+/* Most people sign in with their company account, so when a realm has identity */
+/* providers they come before the local form and the first one is the main button. */
+
+#kc-social-providers {
+  hr,
+  h2,
+  h4 {
+    display: none;
+  }
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .btn {
+    margin: 0;
+  }
+}
+
+#kc-content-wrapper:has(#kc-social-providers) {
+  #kc-social-providers {
+    order: -1;
+  }
+
+  #kc-social-providers li:first-child .btn {
+    background: var(--ado-secondary);
+    border-color: var(--ado-secondary);
+    color: #fff;
+
+    &:hover {
+      background: var(--ado-secondary-hover);
+      border-color: var(--ado-secondary-hover);
+    }
+
+    &::before {
+      filter: brightness(0) invert(1);
+    }
+  }
+
+  #kc-form::before {
+    content: 'or with a local account';
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 14px;
+    font-size: 13px;
+    color: var(--ado-ink-2);
+    background: linear-gradient(var(--ado-line), var(--ado-line)) left center / calc(50% - 96px) 1px no-repeat,
+      linear-gradient(var(--ado-line), var(--ado-line)) right center / calc(50% - 96px) 1px no-repeat;
+  }
+
+  #kc-login {
+    background: #fff;
+    border-color: var(--ado-line);
+    color: var(--ado-ink);
+
+    &:hover {
+      border-color: var(--ado-ink-2);
+    }
+  }
+}
+
+html[lang='de'] #kc-content-wrapper:has(#kc-social-providers) #kc-form::before {
+  content: 'oder mit lokalem Konto';
+}
+
+/* ---------- messages ---------- */
+
+.app-alert {
+  padding: 10px 12px;
+  border: 1px solid var(--ado-line);
+  border-radius: 8px;
+  background: #fff;
+  font-size: 14px;
+
+  &.alert-error,
+  &[class*='alert-error'] {
+    border-color: var(--ado-error-line);
+    background: var(--ado-error-bg);
+    color: var(--ado-error);
+  }
+}
+
+/* ---------- phone ---------- */
+
+@media (max-width: 760px) {
+  .app-shell {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+  }
+
+  .app-brand {
+    padding: 62px 20px 20px;
+    background-position: 20px 22px;
+    background-size: auto 22px;
+
+    &::after {
+      display: none;
+    }
+  }
+
+  .app-brand-title {
+    font-size: 22px;
+  }
+
+  .app-panel {
+    justify-content: flex-start;
+    padding: 26px 20px 30px;
+  }
+}
+
+/* ---------- small corrections on the base markup ---------- */
+
+.form-long {
+  margin-bottom: 0;
+}
+
+#kc-form-options + div {
+  margin: 0;
+}
+
+/* Provider marks are drawn in the old logo blue; show them in the ink colour. */
+.app-social::before {
+  filter: brightness(0);
+  opacity: 0.85;
+}
+
+#kc-content-wrapper:has(#kc-social-providers) #kc-social-providers li:first-child .btn::before {
+  filter: brightness(0) invert(1);
+  opacity: 1;
+}
